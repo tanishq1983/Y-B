@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --cream: #fff8ec;
+  --paper: #fffdf7;
+  --ink: #3e332d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 0.09;
+  mix-blend-mode: multiply;
+  background-image:
+    repeating-radial-gradient(circle at 20% 30%, rgba(80, 60, 45, 0.32) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0 1px, transparent 1px 7px);
+  animation: grain 8s steps(6) infinite;
+}
+
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: #f7c8cf;
+  color: #3e332d;
+}
+
+.paper-edge {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 248, 236, 0.92)),
+    radial-gradient(circle at 18% 20%, rgba(247, 200, 207, 0.36), transparent 30%),
+    radial-gradient(circle at 85% 80%, rgba(216, 197, 238, 0.28), transparent 34%);
+}
+
+.tape {
+  position: absolute;
+  height: 26px;
+  width: 82px;
+  background: rgba(255, 230, 167, 0.7);
+  border: 1px solid rgba(111, 88, 74, 0.08);
+  box-shadow: 0 6px 16px rgba(111, 88, 74, 0.12);
+  backdrop-filter: blur(2px);
+}
+
+.handwritten {
+  font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
