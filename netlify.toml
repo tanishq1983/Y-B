@@ -1,6 +1,7 @@
 [build]
   command = "npm run build"
   publish = ".next"
+  environment = { NEXT_PUBLIC_BUILD = "true" }
 
 [[redirects]]
   from = "/*"
