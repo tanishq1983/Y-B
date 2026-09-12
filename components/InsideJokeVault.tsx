@@ -15,8 +15,8 @@ const formatTime = (seconds: number) => {
 };
 
 const voiceSrc = (note: VoiceNoteItem) => {
-  if (!note.filename) return null;
-  return note.filename.startsWith("/") ? note.filename : `/JOKES/${note.filename}`;
+  if (!note.src) return null;
+  return note.src;
 };
 
 export function InsideJokeVault() {

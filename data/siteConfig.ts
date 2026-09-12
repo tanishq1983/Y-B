@@ -15,6 +15,7 @@ export type VoiceNoteItem = {
   title: string;
   caption: string;
   durationLabel: string;
+  src: string;
 };
 
 const photoFilenames = [
@@ -40,6 +41,9 @@ const photoFilenames = [
   "WhatsApp Image 2026-09-12 at 11.41.19 PM (3).jpeg",
   "WhatsApp Image 2026-09-12 at 11.41.19 PM.jpeg"
 ];
+
+// Netlify converts folder names to lowercase during build
+const PHOTOS_PATH = "/photos/";
 
 const dimensions = [
   [960, 1280],
@@ -96,16 +100,16 @@ export const siteConfig = {
   themeSong: {
     title: "Honeypie — JAWNY",
     filename: "JAWNY - Honeypie (Lyrics).mp3",
-    src: "/MP3/JAWNY - Honeypie (Lyrics).mp3"
+    src: "/mp3/JAWNY - Honeypie (Lyrics).mp3"
   },
   heroPhoto: {
     filename: "WhatsApp Image 2026-09-12 at 11.41.17 PM (3).jpeg",
-    src: "/PHOTOS/WhatsApp Image 2026-09-12 at 11.41.17 PM (3).jpeg"
+    src: "/photos/WhatsApp Image 2026-09-12 at 11.41.17 PM (3).jpeg"
   },
   photos: photoFilenames.map<PhotoItem>((filename, index) => ({
     id: `photo-${index + 1}`,
     filename,
-    src: `/PHOTOS/${filename}`,
+    src: `${PHOTOS_PATH}${filename}`,
     width: dimensions[index][0],
     height: dimensions[index][1],
     caption: captions[index],
@@ -118,35 +122,40 @@ export const siteConfig = {
       filename: "ElevenLabs_2026-09-12T19_17_13__s50_v3.mp3",
       title: "THE INCIDENT",
       caption: "Press play. You already know.",
-      durationLabel: "Loading..."
+      durationLabel: "Loading...",
+      src: "/jokes/ElevenLabs_2026-09-12T19_17_13__s50_v3.mp3"
     },
     {
       id: "joke-02",
       filename: "ElevenLabs_2026-09-12T19_19_34_Roopa - AI Bestie and Gossip Buddy_pvc_sp100_s72_sb75_v3.mp3",
       title: "INSIDE JOKE #02",
       caption: "This one cannot be explained to normal people.",
-      durationLabel: "Loading..."
+      durationLabel: "Loading...",
+      src: "/jokes/ElevenLabs_2026-09-12T19_19_34_Roopa - AI Bestie and Gossip Buddy_pvc_sp100_s72_sb75_v3.mp3"
     },
     {
       id: "joke-03",
       filename: "ElevenLabs_2026-09-12T19_21_59_Roopa - AI Bestie and Gossip Buddy_pvc_sp100_s72_sb75_v3.mp3",
       title: "INSIDE JOKE #03",
       caption: "Scientifically unserious behavior.",
-      durationLabel: "Loading..."
+      durationLabel: "Loading...",
+      src: "/jokes/ElevenLabs_2026-09-12T19_21_59_Roopa - AI Bestie and Gossip Buddy_pvc_sp100_s72_sb75_v3.mp3"
     },
     {
       id: "joke-04",
       filename: "ElevenLabs_2026-09-12T19_23_36_Roopa - AI Bestie and Gossip Buddy_pvc_sp100_s72_sb75_v3.mp3",
       title: "INSIDE JOKE #04",
       caption: "No context. Only dangerous amounts of lore.",
-      durationLabel: "Loading..."
+      durationLabel: "Loading...",
+      src: "/jokes/ElevenLabs_2026-09-12T19_23_36_Roopa - AI Bestie and Gossip Buddy_pvc_sp100_s72_sb75_v3.mp3"
     },
     {
       id: "joke-05",
       filename: "ElevenLabs_2026-09-12T19_24_34_Roopa - AI Bestie and Gossip Buddy_pvc_sp100_s72_sb75_v3.mp3",
       title: "INSIDE JOKE #05",
       caption: "The vault accepts this as official evidence.",
-      durationLabel: "Loading..."
+      durationLabel: "Loading...",
+      src: "/jokes/ElevenLabs_2026-09-12T19_24_34_Roopa - AI Bestie and Gossip Buddy_pvc_sp100_s72_sb75_v3.mp3"
     }
   ] satisfies VoiceNoteItem[],
   stats: [
