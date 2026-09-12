@@ -6,10 +6,14 @@ const nextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
-    localPatterns: [
+    remotePatterns: [
       {
-        pathname: "/PHOTOS/**",
-        search: ""
+        protocol: "https",
+        hostname: "**"
+      },
+      {
+        protocol: "http",
+        hostname: "**"
       }
     ]
   }

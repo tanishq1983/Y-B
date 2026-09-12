@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { decode } from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import { MiniSectionTitle, SectionShell } from "@/components/BirthdayHero";
@@ -42,6 +43,19 @@ export function PhotoArchive() {
                 sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 24vw"
                 className="h-auto w-full object-contain transition duration-500 group-hover:scale-[1.025]"
                 loading={index < 3 ? "eager" : "lazy"}
+                priority={index === 0}
+                onError={(e) => {
+                  const target = e.currentTarget as HTMLImageElement;
+                  target.style.display = 'none';
+                  const parent = target.parentElement;
+                  if (parent) {
+                    const fallbackImg = document.createElement('img');
+                    fallbackImg.src = photo.src;
+                    fallbackImg.alt = photo.caption;
+                    fallbackImg.style.cssText = 'width:100%;height:auto;object-fit:contain;';
+                    parent.appendChild(fallbackImg);
+                  }
+                }}
               />
               <span className="absolute right-3 top-3 rounded-full bg-paper/85 p-2 text-cocoa opacity-0 shadow transition group-hover:opacity-100">
                 <Maximize2 className="h-4 w-4" />
