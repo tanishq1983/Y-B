@@ -22,11 +22,11 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "/PHOTOS/*"
+  for = "/photos/*"
   [headers.values]
     Cache-Control = "public, max-age=86400"
 
 [[headers]]
-  for = "/MP3/*"
+  for = "/mp3/*"
   [headers.values]
     Cache-Control = "public, max-age=86400"

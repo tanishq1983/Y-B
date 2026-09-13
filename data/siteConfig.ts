@@ -18,32 +18,10 @@ export type VoiceNoteItem = {
   src: string;
 };
 
-const photoFilenames = [
-  "WhatsApp Image 2026-09-12 at 11.41.14 PM (1).jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.14 PM.jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.15 PM (1).jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.15 PM (2).jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.15 PM (3).jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.15 PM.jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.16 PM (1).jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.16 PM (2).jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.16 PM (3).jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.16 PM.jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.17 PM (1).jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.17 PM (2).jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.17 PM (3).jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.17 PM.jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.18 PM (1).jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.18 PM (2).jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.18 PM.jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.19 PM (1).jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.19 PM (2).jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.19 PM (3).jpeg",
-  "WhatsApp Image 2026-09-12 at 11.41.19 PM.jpeg"
-];
+// Clean, lowercase, URL-safe filenames — no spaces/uppercase, so paths behave identically on Render, Netlify and Vercel
+const photoFilenames = Array.from({ length: 21 }, (_, i) => `photo-${String(i + 1).padStart(2, "0")}.jpeg`);
 
-// Folder names as tracked in git — public dirs are UPPERCASE (Render/Linux is case-sensitive)
-const PHOTOS_PATH = "/PHOTOS/";
+const PHOTOS_PATH = "/photos/";
 
 const dimensions = [
   [960, 1280],
@@ -99,12 +77,12 @@ export const siteConfig = {
   birthdayDate: "18 September",
   themeSong: {
     title: "Honeypie — JAWNY",
-    filename: "JAWNY - Honeypie (Lyrics).mp3",
-    src: "/MP3/JAWNY - Honeypie (Lyrics).mp3"
+    filename: "honeypie.mp3",
+    src: "/mp3/honeypie.mp3"
   },
   heroPhoto: {
-    filename: "WhatsApp Image 2026-09-12 at 11.41.17 PM (3).jpeg",
-    src: "/PHOTOS/WhatsApp Image 2026-09-12 at 11.41.17 PM (3).jpeg"
+    filename: "photo-13.jpeg",
+    src: "/photos/photo-13.jpeg"
   },
   photos: photoFilenames.map<PhotoItem>((filename, index) => ({
     id: `photo-${index + 1}`,
@@ -119,43 +97,43 @@ export const siteConfig = {
   voiceNotes: [
     {
       id: "incident",
-      filename: "ElevenLabs_2026-09-12T19_17_13__s50_v3.mp3",
+      filename: "joke-01.mp3",
       title: "THE INCIDENT",
       caption: "Press play. You already know.",
       durationLabel: "Loading...",
-      src: "/JOKES/ElevenLabs_2026-09-12T19_17_13__s50_v3.mp3"
+      src: "/jokes/joke-01.mp3"
     },
     {
       id: "joke-02",
-      filename: "ElevenLabs_2026-09-12T19_19_34_Roopa - AI Bestie and Gossip Buddy_pvc_sp100_s72_sb75_v3.mp3",
+      filename: "joke-02.mp3",
       title: "INSIDE JOKE #02",
       caption: "This one cannot be explained to normal people.",
       durationLabel: "Loading...",
-      src: "/JOKES/ElevenLabs_2026-09-12T19_19_34_Roopa - AI Bestie and Gossip Buddy_pvc_sp100_s72_sb75_v3.mp3"
+      src: "/jokes/joke-02.mp3"
     },
     {
       id: "joke-03",
-      filename: "ElevenLabs_2026-09-12T19_21_59_Roopa - AI Bestie and Gossip Buddy_pvc_sp100_s72_sb75_v3.mp3",
+      filename: "joke-03.mp3",
       title: "INSIDE JOKE #03",
       caption: "Scientifically unserious behavior.",
       durationLabel: "Loading...",
-      src: "/JOKES/ElevenLabs_2026-09-12T19_21_59_Roopa - AI Bestie and Gossip Buddy_pvc_sp100_s72_sb75_v3.mp3"
+      src: "/jokes/joke-03.mp3"
     },
     {
       id: "joke-04",
-      filename: "ElevenLabs_2026-09-12T19_23_36_Roopa - AI Bestie and Gossip Buddy_pvc_sp100_s72_sb75_v3.mp3",
+      filename: "joke-04.mp3",
       title: "INSIDE JOKE #04",
       caption: "No context. Only dangerous amounts of lore.",
       durationLabel: "Loading...",
-      src: "/JOKES/ElevenLabs_2026-09-12T19_23_36_Roopa - AI Bestie and Gossip Buddy_pvc_sp100_s72_sb75_v3.mp3"
+      src: "/jokes/joke-04.mp3"
     },
     {
       id: "joke-05",
-      filename: "ElevenLabs_2026-09-12T19_24_34_Roopa - AI Bestie and Gossip Buddy_pvc_sp100_s72_sb75_v3.mp3",
+      filename: "joke-05.mp3",
       title: "INSIDE JOKE #05",
       caption: "The vault accepts this as official evidence.",
       durationLabel: "Loading...",
-      src: "/JOKES/ElevenLabs_2026-09-12T19_24_34_Roopa - AI Bestie and Gossip Buddy_pvc_sp100_s72_sb75_v3.mp3"
+      src: "/jokes/joke-05.mp3"
     }
   ] satisfies VoiceNoteItem[],
   stats: [

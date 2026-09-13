@@ -33,7 +33,7 @@
       ]
     },
     {
-      "source": "/PHOTOS/(.*)",
+      "source": "/photos/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "source": "/MP3/(.*)",
+      "source": "/mp3/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
