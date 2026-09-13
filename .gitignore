@@ -8,3 +8,6 @@ next-dev.*.log
 
 # Local Netlify folder
 .netlify
+
+# TypeScript build artifact
+tsconfig.tsbuildinfo
