@@ -1,0 +1,13 @@
+services:
+  # Static Next.js birthday scrapbook site
+  - type: web
+    name: yagyavi-birthday-scrapbook
+    runtime: node
+    plan: free
+    repo: https://github.com/tanishq1983/Y-B
+    region: singapore
+    branch: main
+    autoDeploy: true
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    healthCheckPath: /
