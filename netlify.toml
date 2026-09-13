@@ -3,6 +3,15 @@
   publish = ".next"
   environment = { NEXT_PUBLIC_BUILD = "true" }
 
+# Bypass the Next.js runtime's /_next/image handler (returns 400 for these
+# photos) and serve the same transforms from Netlify's Image CDN directly.
+# Query params (url, w, q) are forwarded to the destination automatically.
+[[redirects]]
+  from = "/_next/image"
+  to = "/.netlify/images"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/"
